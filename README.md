@@ -2,7 +2,7 @@
 
 ```
 $ cp .env.template .env
-$ docker network create fastapi_vue_env
+$ docker network create keiba
 
 .envの mysql用の定数を各々で設定
 
@@ -12,7 +12,7 @@ $ docker-compose up -d
 # .envの編集
 
 ```
-COMPOSE_PROJECT_NAME=fastapi_vue_env
+COMPOSE_PROJECT_NAME=keiba
 
 MYSQL_USER=[各々で記載]
 MYSQL_PASSWORD=[各々で記載]

@@ -17,7 +17,7 @@ services:
     working_dir: /usr/src/app/scripts
     command: bash -c "./run.sh"
     networks:
-      - fastapi_vue_env
+      - keiba
     environment:
       APP_ENV: "development"
       TZ: "Asia/Tokyo"
@@ -34,7 +34,7 @@ services:
     ports:
       - 8080:8080
     networks:
-      - fastapi_vue_env
+      - keiba
 
   db:
     image: "fastapi_starter_db:0.1.0"
@@ -49,7 +49,7 @@ services:
       - ./docker/db/conf.d:/etc/mysql/conf.d:cached
       - ./log/db:/var/log/mysql:cached
     networks:
-      - fastapi_vue_env
+      - keiba
     environment:
       APP_ENV: "development"
       TZ: "Asia/Tokyo"
@@ -60,7 +60,7 @@ networks:
   default:
     external:
       name: bridge
-  fastapi_vue_env:
-    name: fastapi_vue_env
+  keiba:
+    name: keiba
     driver: bridge
     external: true
