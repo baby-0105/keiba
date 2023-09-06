@@ -18,6 +18,6 @@ class NetKeibaScraping():
         print(title)
 
 if __name__ == "__main__":
-    net_keiba_scraping = NetKeibaScraping()
-    net_keiba_scraping.get_title()
-    net_keiba_scraping.driver.quit()
+    net_keiba = NetKeibaScraping()
+    net_keiba.get_title()
+    net_keiba.driver.quit()
