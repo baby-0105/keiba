@@ -1,0 +1,16 @@
+[packages]
+alembic = "*"
+fastapi = "*"
+mysqlclient = "*"
+SQLAlchemy = "*"
+sqlalchemy_utils = "*"
+uvicorn = "*"
+selenium = "*"
+chromedriver-binary = "*"
+
+[dev-packages]
+flake8 = "*"
+pytest = "*"
+
+[requires]
+python_version = "3.11"

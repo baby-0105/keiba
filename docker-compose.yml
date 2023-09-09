@@ -7,7 +7,7 @@ services:
     depends_on:
       - db
     build:
-      context: ./docker/backend
+      context: ./backend
       dockerfile: Dockerfile
     ports:
       - "8888:8000"
@@ -28,7 +28,7 @@ services:
   front:
     build:
       context: .
-      dockerfile: ./docker/frontend/Dockerfile
+      dockerfile: ./frontend/Dockerfile
     volumes:
       - './frontend:/app'
       - '/app/node_modules'
@@ -40,14 +40,14 @@ services:
   db:
     image: "fastapi_starter_db:0.1.0"
     build:
-      context: ./docker/db
+      context: ./db
       dockerfile: Dockerfile
     restart: always
     tty: true
     expose:
       - "3306"
     volumes:
-      - ./docker/db/conf.d:/etc/mysql/conf.d:cached
+      - ./db/conf.d:/etc/mysql/conf.d:cached
       - ./log/db:/var/log/mysql:cached
     networks:
       - keiba
