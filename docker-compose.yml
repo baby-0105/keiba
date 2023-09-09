@@ -3,6 +3,7 @@ version: '3.8'
 services:
   back:
     image: "fastapi_starter:1.0.0"
+    shm_size: 2gb
     depends_on:
       - db
     build:

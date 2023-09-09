@@ -15,7 +15,11 @@ class NetKeibaScraping():
         self.driver.get("https://www.netkeiba.com/")
 
     def get_horse_info_of_main_race(self):
-        self.driver.find_element(By.LINK_TEXT, "特別登録").click()
+        race_ele = self.driver.find_element(By.LINK_TEXT, "出馬表")
+        if race_ele:
+            race_ele.click()
+        else:
+            self.driver.find_element(By.LINK_TEXT, "特別登録").click()
         horse_list = self.driver.find_elements(By.CLASS_NAME, "HorseList")
         ele_len = len(horse_list)
 
