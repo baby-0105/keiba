@@ -1,3 +1,5 @@
+import datetime
+
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -15,11 +17,16 @@ class NetKeibaScraping():
         self.driver.get("https://www.netkeiba.com/")
 
     def get_horse_info_of_main_race(self):
-        race_ele = self.driver.find_element(By.LINK_TEXT, "出馬表")
-        if race_ele:
-            race_ele.click()
+        today = datetime.date.today()
+
+        # 今日が土日なら
+        if today.weekday() in [5, 6]:
+            self.driver.find_element(By.LINK_TEXT, "出馬表")
         else:
             self.driver.find_element(By.LINK_TEXT, "特別登録").click()
+
+        self.driver.find_element(By.LINK_TEXT, "馬柱(5走)").click()
+
         horse_list = self.driver.find_elements(By.CLASS_NAME, "HorseList")
         ele_len = len(horse_list)
 
