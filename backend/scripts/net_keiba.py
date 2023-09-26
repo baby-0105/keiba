@@ -27,12 +27,45 @@ class NetKeibaScraping():
 
         self.driver.find_element(By.LINK_TEXT, "馬柱(5走)").click()
 
-        horse_list = self.driver.find_elements(By.CLASS_NAME, "HorseList")
-        ele_len = len(horse_list)
+        # 父
+        horse1 = self.driver.find_elements(By.CLASS_NAME, "Horse01")
+        for h1 in horse1:
+            print(h1.text)
 
-        for i in range(ele_len):
-            horse_info =horse_list[i].text
-            print(horse_info)
+        # 馬名
+        horse2 = self.driver.find_elements(By.CLASS_NAME, "Horse02")
+        for h2 in horse2:
+            print(h2.text)
+
+        # 母
+        horse3 = self.driver.find_elements(By.CLASS_NAME, "Horse03")
+        for h3 in horse3:
+            print(h3.text)
+
+        # 母父
+        horse4 = self.driver.find_elements(By.CLASS_NAME, "Horse04")
+        for h4 in horse4:
+            print(h4.text)
+
+        # トレセン・調教師
+        horse5 = self.driver.find_elements(By.CLASS_NAME, "Horse05")
+        for h5 in horse5:
+            print(h5.text)
+
+        # 間隔
+        horse6 = self.driver.find_elements(By.CLASS_NAME, "Horse06")
+        for h6 in horse6:
+            print(h6.text)
+
+        # オッズ（人気）
+        horse7 = self.driver.find_elements(By.CLASS_NAME, "Horse07")
+        for h7 in horse7:
+            print(h7.text)
+
+        # 馬齢
+        barei = self.driver.find_elements(By.CLASS_NAME, "Barei")
+        for b in barei:
+            print(b.text)
 
 if __name__ == "__main__":
     net_keiba = NetKeibaScraping()
